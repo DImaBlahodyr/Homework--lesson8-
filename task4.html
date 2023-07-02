@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+    <style>
+      body {
+        background-color: lightgray;
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      .header {
+        max-width: 1425px;
+        margin: 0 auto;
+        background-color: rgb(31, 199, 131);
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 30px;
+      }
+      .header > p {
+        font-size: 24px;
+      }
+      .content {
+        max-width: 900px;
+        margin: 10px auto;
+        background-color: rgb(31, 199, 131);
+        border-radius: 10px;
+        text-align: center;
+        padding: 5px 0;
+        font-size: 24px;
+      }
+      .content > p {
+        text-align: center;
+      }
+      .content > table {
+        margin-bottom: 10px;
+        max-width: 100px;
+        margin: 10px auto;
+      }
+
+      .btn {
+        max-width: 300px;
+        margin: 30px auto;
+      }
+      .button {
+        display: block;
+        text-decoration: none;
+        color: black;
+        background-color: rgb(31, 199, 131);
+        margin: 15px 25px;
+        text-align: center;
+        font-size: 22px;
+        padding: 10px 20px;
+        border-radius: 7px;
+      }
+      .button:hover {
+        background-color: rgb(63, 112, 210);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div>Задача 4</div>
+      <p>
+        Дано послідовність номерів автомобілів. Підрахувати кількість номерів,
+        які:<br />
+        • починаються на букву «А»;<br />
+        • перша і остання літери співпадають;<br />
+        • складаються з більше ніш 5 символів;<br />
+      </p>
+    </div>
+    <div class="content">
+      <p>Відповідь до задачі:</p>
+      <script>
+        let carNumbers = [
+          'АА1234АА',
+          'КА1534ВА',
+          'СЕ1ВС',
+          'СВ1234ВК',
+          'ВС4КА',
+          'АА8357ВС',
+          'КI1234АК',
+        ]
+
+        document.write(`Масив: ${carNumbers} <br><br>`)
+
+        function firstLatter(carNumbers) {
+          let counter = 0
+          for (let i = 0; i < carNumbers.length; i++) {
+            if (carNumbers[i][0] === 'А') counter++
+          }
+          return counter
+        }
+
+        document.write(
+          `${firstLatter(carNumbers)} номери починаються на літеру А <br>`
+        )
+
+        function firstAndLastLatter(carNumbers) {
+          let counter = 0
+          for (let i = 0; i < carNumbers.length; i++) {
+            if (carNumbers[i][0] === carNumbers[i][carNumbers[i].length - 1])
+              counter++
+          }
+          return counter
+        }
+
+        document.write(
+          `У ${firstAndLastLatter(
+            carNumbers
+          )} номерів співпадають перша і остання літери <br>`
+        )
+
+        function moreFiveSymbols(carNumbers) {
+          let counter = 0
+          for (let i = 0; i < carNumbers.length; i++) {
+            if (carNumbers[i].length > 5) counter++
+          }
+          return counter
+        }
+
+        document.write(
+          `${moreFiveSymbols(
+            carNumbers
+          )} номерів мають більше 5ти символів <br>`
+        )
+      </script>
+    </div>
+    <div class="btn">
+      <a class="button" href="./index.html">На головну</a>
+    </div>
+  </body>
+</html>

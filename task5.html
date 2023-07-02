@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 5</title>
+    <style>
+      body {
+        background-color: lightgray;
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      .header {
+        max-width: 1425px;
+        margin: 0 auto;
+        background-color: rgb(31, 199, 131);
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 30px;
+      }
+      .header > p {
+        font-size: 24px;
+      }
+      .content {
+        max-width: 600px;
+        margin: 10px auto;
+        background-color: rgb(31, 199, 131);
+        border-radius: 10px;
+        text-align: center;
+        padding: 5px 0;
+        font-size: 24px;
+      }
+      .content > p {
+        text-align: center;
+      }
+      .content > table {
+        margin-bottom: 10px;
+        max-width: 100px;
+        margin: 10px auto;
+      }
+
+      .btn {
+        max-width: 300px;
+        margin: 30px auto;
+      }
+      .button {
+        display: block;
+        text-decoration: none;
+        color: black;
+        background-color: rgb(31, 199, 131);
+        margin: 15px 25px;
+        text-align: center;
+        font-size: 22px;
+        padding: 10px 20px;
+        border-radius: 7px;
+      }
+      .button:hover {
+        background-color: rgb(63, 112, 210);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div>Задача 5</div>
+      <p>
+        Дано послідовність оцінок учня. Підрахувати кількість:<br />
+        1. двійок<br />
+        2. кількість хороших оцінок (добре, відмінно)<br />
+        3. кількість оцінок, які нижче середнього<br />
+      </p>
+    </div>
+    <div class="content">
+      <p>Відповідь до задачі:</p>
+      <script>
+        let scores = [2, 4, 3, 5, 5, 5, 4, 3, 3, 4, 2, 2, 4, 5, 4, 4, 5, 3, 4]
+
+        document.write(`Масив:<br> ${scores} <br><br>`)
+
+        function twosNums(scores) {
+          let counter = 0
+          for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === 2) counter++
+          }
+          return counter
+        }
+        document.write(`Кількість двійок: ${twosNums(scores)} <br>`)
+
+        function goodScores(scores) {
+          let counter1 = 0
+          let counter2 = 0
+          for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === 4) counter1++
+          }
+          for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === 5) counter2++
+          }
+          return counter1 + counter2
+        }
+        document.write(
+          `Кількість хороших оцінок (добре, відмінно): ${goodScores(
+            scores
+          )} <br>`
+        )
+
+        function satisfactoryScores(scores) {
+          let counter = 0
+          for (let i = 0; i < scores.length; i++) {
+            if (scores[i] === 3) counter++
+          }
+          return counter
+        }
+        document.write(
+          `Кількість оцінок, які нижче середнього: ${satisfactoryScores(
+            scores
+          )} <br>`
+        )
+      </script>
+    </div>
+    <div class="btn">
+      <a class="button" href="./index.html">На головну</a>
+    </div>
+  </body>
+</html>
