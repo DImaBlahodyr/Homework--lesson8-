@@ -103,17 +103,22 @@
           )} <br>`
         )
 
+        let averageScore = 0
+        for (let i = 0; i < scores.length; i++) {
+          averageScore += scores[i] / scores.length
+        }
+
         function satisfactoryScores(scores) {
           let counter = 0
           for (let i = 0; i < scores.length; i++) {
-            if (scores[i] === 3) counter++
+            if (scores[i] < averageScore) counter++
           }
           return counter
         }
         document.write(
-          `Кількість оцінок, які нижче середнього: ${satisfactoryScores(
-            scores
-          )} <br>`
+          `Кількість оцінок, які нижче ${averageScore.toFixed(
+            2
+          )}: ${satisfactoryScores(scores)} <br>`
         )
       </script>
     </div>
